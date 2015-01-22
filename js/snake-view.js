@@ -30,7 +30,7 @@
     var $button = $("<button class='btn'>Restart Game</button>")
     $button.on("click", this.restartGame.bind(this))
     clearInterval(this.interval);
-    $('div#main').append($button);
+    $('div#message').append($button);
 
     var name = prompt("What's your name?");
     this.leaderboard.push([name, this.board.snake.score]);
@@ -41,19 +41,20 @@
     var that = this;
     that.board = new Board();
     that.interval = setInterval(that.step.bind(that), 200);
-    $('div#main').children('button').remove();
+    $('div#message').children('button').remove();
   };
 
   View.prototype.togglePause = function(){
     var that = this;
-
-    if (!that.interval) {
-      that.interval = setInterval(that.step.bind(that), 200)
-      $('div#message').removeClass("paused");
-    } else {
-      clearInterval(that.interval);
-      that.interval = null;
-      $('div#message').addClass("paused");
+    if ($('button').length == 0) {
+      if (!that.interval) {
+        that.interval = setInterval(that.step.bind(that), 200)
+        $('div#message').removeClass("paused");
+      } else {
+        clearInterval(that.interval);
+        that.interval = null;
+        $('div#message').addClass("paused");
+      }
     }
   }
 
