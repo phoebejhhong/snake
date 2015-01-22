@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Snake</title>
+    <link rel="stylesheet" type="text/css" href="../css/snake.css">
+    <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div id="main">
+      <header>
+        <h1>$ S n a k e $</h1>
+        <div id="score"></div>
+        <div id="instructions">Press <strong>Spacebar</strong> to pause</div>
+      </header>
+      <div id="game"></div>
+    </div>
+    <div id="message">
+    </div>
+
+    <div id="leaderboard">
+      <ol>
+      </ol>
+    </div>
+
+
+
+    <script src="../js/jquery-2.1.1.js"></script>
+    <script src="../js/snake.js"></script>
+    <script src="../js/snake-view.js"></script>
+    <script charset="utf-8">
+      var $el = $('div#game');
+      var view = new Snake.View($el);
+    </script>
+  </body>
+</html>
